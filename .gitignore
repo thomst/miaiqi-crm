@@ -1,0 +1,13 @@
+*.pyc
+*~
+.*/
+*.db
+*.sqlite3*
+*data.json
+/db/
+staticfiles/
+media/
+/.python-version
+/.vscode/
+/my.cnf
+/backups/
