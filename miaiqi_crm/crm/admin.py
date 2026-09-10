@@ -24,5 +24,32 @@ class ContactInline(admin.TabularInline):
 @admin.register(Store)
 class StoreAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'status')
+    list_filter = ('type', 'status', 'city')
     search_fields = ('name', 'address', 'note')
     inlines = (ContactInline,)
+    fieldsets = [
+        (
+            None,
+            {
+                "fields": ["name", "type", "status"],
+            },
+        ),
+        (
+            "Address Information",
+            {
+                "fields": ["city", "postal_code", "street_address"],
+            },
+        ),
+        (
+            "Contact Information",
+            {
+                "fields": ["email", "phone", "website"],
+            },
+        ),
+        (
+            "Note",
+            {
+                "fields": ["note"],
+            },
+        ),
+    ]
